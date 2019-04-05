@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    CountryScan50
+{% endblock %}
+
+{% block main %}
+                <!-- Own Javascript File -->
+                <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+                <!-- Form to select country and year -->
+                <form id="formulaire">
+                    <fieldset>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <select class="form-control" name="country" id="country" required>
+                                    <option value="" selected disabled>Select a Country or Region</option>
+                                    {% for country in countries_list %}
+                                    <option value="{{ country }}">{{ country }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <select class="form-control" name="year" id="year" required>
+                                    <option value="" selected disabled>Select a Year</option>
+                                    {% for i in range(1950,2020) %}
+                                    <option value="{{ i }}">{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="closeAlert()">Search</button>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <!-- Chart title -->
+                <!-- <div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6"></div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div> -->
+                <div id="graph_title"></div>
+
+                <!-- Esthetical gap -->
+                <div id="gap"></div>
+
+                <!-- Gender dropdown menu -->
+                <div>
+                    <div class="row">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-2">
+                            <div id="gender-drop" align=center></div>
+                        <div class="col-md-5"></div>
+                    </div>
+                </div>
+
+                <!-- Bar chart -->
+                <div id="chart"></div>
+
+                <!-- Population table -->
+                <div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <div id="table-div">
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                </div>
+{% endblock %}

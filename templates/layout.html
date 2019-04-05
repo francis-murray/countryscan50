@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootswatch theme for Bootstrap -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-SJRp3lIuvy82g2roYNoSMWGEf7ufogthbl9noRHbJIxsMPcFl6NEi5fO3PuYptFv" crossorigin="anonymous">
+
+        <!-- own CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+        <!-- Import d3 -->
+        <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+
+        <!--  Import jQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+        <!-- Favicon (public image: https://www.kisspng.com/png-favicon-world-wide-web-icon-earth-362550/) -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+        <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/touch-icon-iphone.png') }}">
+
+        <!-- Page title -->
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <div class="container">
+          <!-- Navigation Bar -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="{{ url_for('index') }}">CountryScan50</a><img id="world-icon" src="{{ url_for('static', filename='img/favicon.ico') }}" />
+            </nav>
+
+            <!-- Esthetical gap between navbar and Main section -->
+            <div id="gap"></div>
+
+            <!-- Main section -->
+            <main>
+                {% block main %}{% endblock %}
+                <!-- back to top link -->
+            </main>
+            <footer>
+                CountryScan v1.1
+                <br> &copy; 2019 <a href="mailto:franciswmurray@gmail.com">Francis Murray</a>
+                <br> Data source: <a href="https://www.worlddata.io/" target="_blank">World Data Lab</a>
+                <br><br>&nbsp;
+            </footer>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+        <script>
+            function closeAlert() {
+                $("#myAlert").alert("close");
+            }
+        </script>
+    </body>
+</html>
